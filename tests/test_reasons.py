@@ -242,13 +242,16 @@ def test_fixable_by_rewrite(code, expected):
 
 
 # ---------------------------------------------------------------------------
-# Measured against the collected corpus rather than against our own fixtures.
+# Measured against the shipped corpus rather than against our own fixtures.
 # These numbers are the project's central empirical claim, so they are pinned:
-# if the table changes, the effect on 1,472 real declines shows up here.
+# if the table changes, the effect on 1,459 real declines shows up here.
+#
+# Deliberately the de-identified file, which is the one that ships. Pinning to
+# the raw file would mean these assertions only ever ran on one machine, and a
+# clone would skip the tests that carry the claim.
 # ---------------------------------------------------------------------------
 
-DATASET = Path(__file__).resolve().parent.parent / "data" / "dataset.jsonl"
-needs_dataset = pytest.mark.skipif(not DATASET.exists(), reason="data/dataset.jsonl not collected")
+DATASET = Path(__file__).resolve().parent.parent / "data" / "dataset.anonymized.jsonl"
 
 
 @pytest.fixture(scope="module")
@@ -258,11 +261,10 @@ def corpus():
     return load_dataset(DATASET)
 
 
-@needs_dataset
 def test_full_table_cuts_unknown_declines_by_more_than_a_third(corpus):
-    """The partial seed left 11.7% of real declines unclassified; the full table leaves 7.3%."""
+    """The partial seed left 11.5% of real declines unclassified; the full table leaves 7.2%."""
     codes = [(d.code or "").strip().lower() for h in corpus for d in h.declines]
-    assert len(codes) == 1472, "corpus changed; re-measure before editing the numbers below"
+    assert len(codes) == 1459, "corpus changed; re-measure before editing the numbers below"
 
     seed_only = {
         "nn", "v", "bio", "corp", "event", "music", "athlete", "film", "web",
@@ -272,34 +274,32 @@ def test_full_table_cuts_unknown_declines_by_more_than_a_third(corpus):
     before = sum(1 for c in codes if c not in seed_only)
     after = sum(1 for c in codes if R.family_for(c) is ReasonFamily.UNKNOWN)
 
-    assert before == 172
-    assert after == 108
+    assert before == 168
+    assert after == 105
     assert after / len(codes) < 0.08
 
 
-@needs_dataset
 def test_what_remains_unknown_is_free_text_or_a_reject_not_a_refusal_to_look(corpus):
-    """Of 108 unresolved declines, 100 are unclassifiable in principle."""
+    """Of 105 unresolved declines, 97 are unclassifiable in principle."""
     unresolved = collections.Counter(
         (d.code or "").strip().lower() or "<empty>"
         for h in corpus
         for d in h.declines
         if R.family_for(d.code) is ReasonFamily.UNKNOWN
     )
-    assert sum(unresolved.values()) == 108
+    assert sum(unresolved.values()) == 105
 
     # `reason` is a free-text decline: the meaning lives in the reviewer's prose,
     # not in the code. `n` and `e` are rejects, which end the submission.
     inherently = unresolved["reason"] + sum(unresolved[c] for c in R.REJECT_ONLY_CODES)
-    assert inherently == 100
+    assert inherently == 97
 
     # Only these are real decline codes we looked at and declined to classify.
     ours = {c: n for c, n in unresolved.items() if c not in R.REJECT_ONLY_CODES and c != "reason"}
     assert ours == {"not": 2, "cv-cleaned": 2, "dict": 2, "blp": 1, "<empty>": 1}
-    assert sum(ours.values()) / 1472 < 0.006
+    assert sum(ours.values()) / 1459 < 0.006
 
 
-@needs_dataset
 def test_the_project_thesis_holds_on_the_corpus(corpus):
     """~60% of declines are reasons that rewriting cannot fix.
 
@@ -314,13 +314,12 @@ def test_the_project_thesis_holds_on_the_corpus(corpus):
         if (code or "").strip()
     )
     total = sum(families.values())
-    assert total == 1731
-    assert families[ReasonFamily.SOURCE_EXISTENCE] == 1055
+    assert total == 1715
+    assert families[ReasonFamily.SOURCE_EXISTENCE] == 1048
     assert 0.60 <= families[ReasonFamily.SOURCE_EXISTENCE] / total <= 0.62
     assert families[ReasonFamily.WRITING] / total == pytest.approx(0.307, abs=0.01)
 
 
-@needs_dataset
 def test_only_the_afch_spellings_actually_occur(corpus):
     """Live evidence for keeping `adv`/`dup`/`v`/`ns` as the canonical codes.
 
@@ -336,7 +335,7 @@ def test_only_the_afch_spellings_actually_occur(corpus):
         if (code or "").strip()
     )
     assert seen["adv"] == 82 and seen["advert"] == 0
-    assert seen["v"] == 216 and seen["source"] == 0 and seen["rs"] == 0
-    assert seen["ns"] == 27 and seen["nosource"] == 0
+    assert seen["v"] == 214 and seen["source"] == 0 and seen["rs"] == 0
+    assert seen["ns"] == 26 and seen["nosource"] == 0
     assert seen["dup"] == 0 and seen["duplicate"] == 0
     assert seen["afd"] == 0, "documented in templatedata, absent from the switch, never used"

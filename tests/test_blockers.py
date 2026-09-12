@@ -238,8 +238,9 @@ class TestAttemptWiring:
 # Measured on the collected corpus, not on fixtures.
 # ---------------------------------------------------------------------------
 
-DATASET = Path(__file__).resolve().parent.parent / "data" / "dataset.jsonl"
-needs_dataset = pytest.mark.skipif(not DATASET.exists(), reason="data/dataset.jsonl not collected")
+# The de-identified file, which is the one that ships: pinning to the raw file
+# would mean a clone skipped exactly the tests that carry the claim.
+DATASET = Path(__file__).resolve().parent.parent / "data" / "dataset.anonymized.jsonl"
 
 
 @pytest.fixture(scope="module")
@@ -249,19 +250,18 @@ def corpus():
     return load_dataset(DATASET)
 
 
-@needs_dataset
 def test_most_drafts_are_told_the_same_thing_more_than_once(corpus):
-    """63.5% of drafts get the same code twice or more.
+    """64.0% of drafts get the same code twice or more.
 
-    A separate count of primary codes alone gives 56.7%; the difference is the
+    A separate count of primary codes alone gives 57.1%; the difference is the
     `reason2` parameter, which `build_blockers` counts because a secondary
     reason is a reason. Both numbers are recorded so neither looks like a bug.
     """
-    assert len(corpus) == 540
+    assert len(corpus) == 534
 
     repeated = sum(1 for h in corpus if any(b.repeat_count >= 2 for b in build_blockers(h)))
-    assert repeated == 343
-    assert repeated / len(corpus) == pytest.approx(0.635, abs=0.005)
+    assert repeated == 342
+    assert repeated / len(corpus) == pytest.approx(0.640, abs=0.005)
 
     primary_only = 0
     for h in corpus:
@@ -270,16 +270,15 @@ def test_most_drafts_are_told_the_same_thing_more_than_once(corpus):
         )
         if any(v >= 2 for v in counts.values()):
             primary_only += 1
-    assert primary_only == 306
-    assert primary_only / len(corpus) == pytest.approx(0.567, abs=0.005)
+    assert primary_only == 305
+    assert primary_only / len(corpus) == pytest.approx(0.571, abs=0.005)
 
 
-@needs_dataset
 def test_two_thirds_of_drafts_are_blocked_by_something_rewriting_cannot_fix(corpus):
     """The finding the whole tool rests on.
 
-    For 67.6% of these drafts the reason at the top of the card is one where
-    editing prose is beside the point -- and 45.9% have been told such a reason
+    For 67.8% of these drafts the reason at the top of the card is one where
+    editing prose is beside the point -- and 46.4% have been told such a reason
     at least twice.
     """
     unfixable_top = 0
@@ -293,12 +292,11 @@ def test_two_thirds_of_drafts_are_blocked_by_something_rewriting_cannot_fix(corp
         ):
             repeated_source_existence += 1
 
-    assert unfixable_top == 365
-    assert unfixable_top / len(corpus) == pytest.approx(0.676, abs=0.005)
+    assert unfixable_top == 362
+    assert unfixable_top / len(corpus) == pytest.approx(0.678, abs=0.005)
     assert repeated_source_existence == 248
 
 
-@needs_dataset
 def test_no_draft_loses_a_reason_that_was_ever_raised(corpus):
     """Silence in a later decline never removes an earlier blocker."""
     for h in corpus:
