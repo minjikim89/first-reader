@@ -1,0 +1,34 @@
+{
+  "dataset": "data/dataset.anonymized.jsonl",
+  "drafts": 534,
+  "card_build": {
+    "built": 534,
+    "failed": 0,
+    "failure_rate": 0.0,
+    "no_blockers": 0,
+    "llm_calls": 606,
+    "readings": 55,
+    "fell_back_to_template": 40,
+    "failures": []
+  },
+  "escalation": {
+    "judged": 534,
+    "escalated": 534,
+    "states": {
+      "attempt_not_measured": 168,
+      "inconsistent_reviewers": 322,
+      "unknown_family": 44
+    }
+  },
+  "overlap": {
+    "drafts": 219,
+    "windows": 390,
+    "top_primary": 0.36153846153846153,
+    "top_either": 0.38974358974358975,
+    "baseline_primary": 0.36153846153846153,
+    "baseline_either": 0.38974358974358975,
+    "carried_contains_next": 0.5871794871794872,
+    "latest_only_contains_next": 0.38974358974358975,
+    "revived": 0.19743589743589743
+  }
+}
