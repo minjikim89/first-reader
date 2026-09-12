@@ -4,6 +4,8 @@
 
 An agent for the volunteers who review new Wikipedia articles, built with [Strands Agents](https://github.com/strands-agents/harness-sdk).
 
+**[Open the reviewer screen →](https://minjikim89.github.io/first-reader/)** — the real UI, with real card data. Arrow keys move through the queue.
+
 ![A reviewer card showing the standing blocker, whether rewriting can clear it, and what the contributor changed](web/screenshots/desktop-card-1.png)
 
 ---
