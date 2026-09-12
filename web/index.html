@@ -1,0 +1,88 @@
+<!doctype html>
+<!--
+  First Reader - the reviewer screen. Static HTML, no build step, no framework.
+
+  Open index.html directly, or serve the folder (`python3 -m http.server` from
+  web/) if you want the fixture to load over fetch instead of the inline copy.
+
+  Data comes from fixtures/cards.json through data.js. Point SOURCE in data.js
+  at the API to move off fixtures; nothing else needs to change.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Reader — AfC review queue</title>
+<meta name="description" content="Carries decline context across Wikipedia AfC resubmissions. It does not review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__id">
+    <span class="wordmark">First&nbsp;Reader</span>
+    <span class="topbar__rule" aria-hidden="true"></span>
+    <span class="topbar__queue">AfC pending review</span>
+  </div>
+
+  <nav class="pager" aria-label="Queue">
+    <ol class="pager__dots" id="dots"></ol>
+    <span class="pager__count" id="counter">—</span>
+    <span class="pager__ctrls">
+      <button class="iconbtn" id="prev" type="button" aria-label="Previous draft">‹</button>
+      <button class="iconbtn" id="next" type="button" aria-label="Next draft">›</button>
+    </span>
+  </nav>
+</header>
+
+<div class="charter">
+  <p>First Reader never decides whether a draft is acceptable. It carries forward decisions
+  reviewers already made, and reports what changed since. Every judgement on this screen is
+  one a human already wrote down.</p>
+</div>
+
+<main class="layout">
+  <div class="column column--card" id="card-root" tabindex="-1"></div>
+
+  <aside class="column column--rail">
+    <section class="rules" aria-labelledby="rules-h">
+      <header class="rules__head">
+        <h2 id="rules-h">What this session has learned</h2>
+        <span class="rules__count" id="rules-count">0</span>
+      </header>
+      <p class="rules__note">
+        Rules are written from your decisions, in your words back at you. They change what
+        First Reader surfaces first. They never change a verdict.
+      </p>
+      <ol class="rules__list" id="rules-list" aria-live="polite"></ol>
+      <footer class="rules__foot">
+        <button class="linkbtn" id="reset" type="button">Reset session</button>
+      </footer>
+    </section>
+    <p class="railfoot">
+      <kbd>←</kbd><kbd>→</kbd> or <kbd>j</kbd><kbd>k</kbd> to move through the queue
+    </p>
+  </aside>
+</main>
+
+<footer class="pagefoot">
+  <p>
+    Demonstration data. One card &mdash; <em>Draft:0&rarr;1 Doctrine for AI</em> &mdash; is taken
+    from the public record: its decline codes, timestamps, revision ids and edit summaries are
+    real. The other eight drafts are invented. <strong>Every account name on this screen is a
+    neutral label.</strong> AfC reviewers are volunteers, and none of them should appear here
+    attached to a review they did not make. Numbers derived from diffs (reference counts, new
+    domains, similarity) are estimates; revision sizes and the byte deltas from them are real.
+  </p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="fixtures/cards.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

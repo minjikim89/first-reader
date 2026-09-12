@@ -1,0 +1,785 @@
+/* GENERATED FROM cards.json - do not edit by hand.
+ * Regenerate:
+ *   python3 -c "import json,pathlib;d=pathlib.Path('web/fixtures');\
+ *     h=open(d/'cards.js').read().split(chr(10)+chr(10))[0];\
+ *     open(d/'cards.js','w').write(h+chr(10)+chr(10)+'window.__FIRST_READER_FIXTURE__ = '+ \
+ *       (d/'cards.json').read_text()+';'+chr(10))"
+ *
+ * cards.json is the source of truth. This copy exists only so the page also
+ * works when opened straight off the filesystem, where fetch() of a local
+ * file is blocked by the browser.
+ */
+
+window.__FIRST_READER_FIXTURE__ = {
+  "generated_at": "2026-09-07T09:00:00Z",
+  "queue": "en.wikipedia AfC pending, sampled",
+  "reviewer": "Reviewer (you)",
+  "note": "Fixture data shaped exactly like first_reader.models.ReviewCard. Derived properties (fixable_by_rewrite, added_sources, substantive_rewrite, wasted_rewrite, decline_count) are NOT stored here - the client recomputes them from the same rules as models.py. See `provenance` for what is real, what is invented and what is anonymised.",
+  "cards": [
+    {
+      "draft": {
+        "title": "Draft:0→1 Doctrine for AI",
+        "pageid": 83560144,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "ai",
+            "secondary_code": "nn",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-06-27T03:24:30Z",
+            "declined_at": "2026-06-27T04:52:13Z",
+            "raw": "{{AfC submission|d|ai|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260627045213|reason2=nn|small=yes|ts=20260627032430}}"
+          },
+          {
+            "code": "v",
+            "secondary_code": "ai",
+            "decliner": "Reviewer B",
+            "submitted_at": "2026-06-29T17:22:35Z",
+            "declined_at": "2026-06-29T20:57:11Z",
+            "raw": "{{AfC submission|d|v|u=Contributor|ns=118|decliner=Reviewer B|declinets=20260629205711|reason2=ai|small=yes|ts=20260629172235}}"
+          },
+          {
+            "code": "nn",
+            "secondary_code": null,
+            "decliner": "Reviewer C",
+            "submitted_at": "2026-07-08T14:47:43Z",
+            "declined_at": "2026-07-08T14:49:01Z",
+            "raw": "{{AfC submission|d|nn|u=Contributor|ns=118|decliner=Reviewer C|declinets=20260708144901|ts=20260708144743}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1361228266,
+            "parentid": 0,
+            "user": "Contributor",
+            "timestamp": "2026-06-26T14:58:00Z",
+            "comment": "Live page",
+            "size": 5355
+          },
+          {
+            "revid": 1361228473,
+            "parentid": 1361228266,
+            "user": "AfC bot",
+            "timestamp": "2026-06-26T15:00:26Z",
+            "comment": "[[WP:BOT|Bot]]: Adding AfC template ([[Wikipedia:Bots/Requests for approval/AfC bot 15|Task 15]])",
+            "size": 5377
+          },
+          {
+            "revid": 1361229056,
+            "parentid": 1361228473,
+            "user": "Contributor",
+            "timestamp": "2026-06-26T15:06:44Z",
+            "comment": "live",
+            "size": 5355
+          },
+          {
+            "revid": 1361313996,
+            "parentid": 1361229056,
+            "user": "Contributor",
+            "timestamp": "2026-06-27T03:25:01Z",
+            "comment": "review",
+            "size": 5417
+          },
+          {
+            "revid": 1361321671,
+            "parentid": 1361313996,
+            "user": "Reviewer A",
+            "timestamp": "2026-06-27T04:52:13Z",
+            "comment": "Declining submission: ai - Submission appears to be a large language model output and nn - Submission is about a topic not yet shown to meet general notability guidelines (be more specific if possible)",
+            "size": 5517
+          },
+          {
+            "revid": 1361715064,
+            "parentid": 1361321671,
+            "user": "Contributor",
+            "timestamp": "2026-06-29T17:19:45Z",
+            "comment": "made changes re wrote organically",
+            "size": 5630
+          },
+          {
+            "revid": 1361715575,
+            "parentid": 1361715064,
+            "user": "Contributor",
+            "timestamp": "2026-06-29T17:22:35Z",
+            "comment": "Submitting using [[WP:AFCSW|AfC-submit-wizard]]",
+            "size": 5737
+          },
+          {
+            "revid": 1361748116,
+            "parentid": 1361715575,
+            "user": "Reviewer B",
+            "timestamp": "2026-06-29T20:57:11Z",
+            "comment": "Declining submission: v - Submission lacks sufficient sources to verify content and ai - Submission appears to be a large language model output",
+            "size": 6245
+          },
+          {
+            "revid": 1363174191,
+            "parentid": 1361748116,
+            "user": "Contributor",
+            "timestamp": "2026-07-08T14:38:35Z",
+            "comment": "have re- written completely",
+            "size": 6758
+          },
+          {
+            "revid": 1363175248,
+            "parentid": 1363174191,
+            "user": "Contributor",
+            "timestamp": "2026-07-08T14:47:43Z",
+            "comment": "Submitting using [[WP:AFCSW|AfC-submit-wizard]]",
+            "size": 6879
+          },
+          {
+            "revid": 1363175439,
+            "parentid": 1363175248,
+            "user": "Reviewer C",
+            "timestamp": "2026-07-08T14:49:01Z",
+            "comment": "Declining submission: nn - Submission is about a topic not yet shown to meet general notability guidelines (be more specific if possible)",
+            "size": 6946
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "nn",
+          "family": "source_existence",
+          "first_seen": "2026-06-27T04:52:13Z",
+          "repeat_count": 2,
+          "carried_from": [
+            "Reviewer A",
+            "Reviewer C"
+          ],
+          "attempt": {
+            "refs_before": 7,
+            "refs_after": 9,
+            "new_domains": [
+              "medium.com",
+              "substack.com"
+            ],
+            "bytes_changed": 634,
+            "similarity": 0.31,
+            "touched_target_area": false,
+            "editor_comments": [
+              "have re- written completely",
+              "Submitting using [[WP:AFCSW|AfC-submit-wizard]]"
+            ]
+          }
+        },
+        {
+          "code": "ai",
+          "family": "writing",
+          "first_seen": "2026-06-27T04:52:13Z",
+          "repeat_count": 2,
+          "carried_from": [
+            "Reviewer A",
+            "Reviewer B"
+          ],
+          "attempt": {
+            "refs_before": 7,
+            "refs_after": 9,
+            "new_domains": [
+              "medium.com",
+              "substack.com"
+            ],
+            "bytes_changed": 634,
+            "similarity": 0.31,
+            "touched_target_area": true,
+            "editor_comments": [
+              "have re- written completely",
+              "Submitting using [[WP:AFCSW|AfC-submit-wizard]]"
+            ]
+          }
+        },
+        {
+          "code": "v",
+          "family": "source_existence",
+          "first_seen": "2026-06-29T20:57:11Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer B"
+          ],
+          "attempt": null
+        }
+      ],
+      "draft_comment": "Three declines now, and they have not all been about the same thing. Two of them (ai, v) are about how the draft is written and sourced. The most recent one (nn) is not.\n\nSince that last decline you rewrote most of the article - roughly 69% of the text is new - and the tone is genuinely better for it. That work does not touch the notability decline, and another rewrite will not clear it either.\n\nWhat would change the outcome is two or three sources that are independent of the subject, published somewhere with editorial oversight, and about the subject in some depth rather than in passing. If sources like that do not exist yet, the draft cannot be accepted no matter how well it is written. That is not a judgement about the topic - it is what the notability guideline measures.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Third decline, and the reason changed family twice. The contributor rewrote 69% of the draft against a reason rewriting cannot fix."
+    },
+    {
+      "draft": {
+        "title": "Draft:Ambience Networks Ltd",
+        "pageid": 77980114,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "corp",
+            "secondary_code": "adv",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-05-21T09:03:00Z",
+            "declined_at": "2026-06-02T14:20:00Z",
+            "raw": "{{AfC submission|d|corp|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260602142000|ts=20260521090300|reason2=adv}}"
+          },
+          {
+            "code": "corp",
+            "secondary_code": null,
+            "decliner": "Reviewer B",
+            "submitted_at": "2026-07-22T16:44:00Z",
+            "declined_at": "2026-08-04T07:12:00Z",
+            "raw": "{{AfC submission|d|corp|u=Contributor|ns=118|decliner=Reviewer B|declinets=20260804071200|ts=20260722164400}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1289770233,
+            "parentid": 1289701882,
+            "user": "Contributor",
+            "timestamp": "2026-08-18T11:02:00Z",
+            "comment": "added 8 references",
+            "size": 14310
+          },
+          {
+            "revid": 1291588447,
+            "parentid": 1289770233,
+            "user": "Contributor",
+            "timestamp": "2026-09-01T09:37:00Z",
+            "comment": "added more sources as requested",
+            "size": 15550
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "corp",
+          "family": "source_existence",
+          "first_seen": "2026-06-02T14:20:00Z",
+          "repeat_count": 2,
+          "carried_from": [
+            "Reviewer A",
+            "Reviewer B"
+          ],
+          "attempt": {
+            "refs_before": 3,
+            "refs_after": 11,
+            "new_domains": [
+              "prnewswire.com",
+              "businesswire.com",
+              "ambiencenetworks.com",
+              "techfundingnews.com"
+            ],
+            "bytes_changed": 1240,
+            "similarity": 0.88,
+            "touched_target_area": true,
+            "editor_comments": [
+              "added 8 references",
+              "added more sources as requested"
+            ]
+          }
+        },
+        {
+          "code": "adv",
+          "family": "writing",
+          "first_seen": "2026-06-02T14:20:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": null
+        }
+      ],
+      "draft_comment": "You have added eight references since the last decline, so the request was heard. The decline has stayed the same anyway, which usually means the count was never the problem.\n\nFor an organisation, what is being weighed is whether independent people with editorial oversight chose to write about the company at length. Press releases and syndicated announcements do not carry that weight no matter how many are cited, and neither does the company's own site.\n\nIf you can point to two sources that were written by someone with no relationship to the company, and that discuss it in more than a sentence or two, say so here and the next reviewer will have somewhere concrete to start.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Same decline twice from two different reviewers, with eight sources added in between."
+    },
+    {
+      "draft": {
+        "title": "Draft:Marisol Vega-Ibarra",
+        "pageid": 78102874,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "bio",
+            "secondary_code": "ilc",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-07-29T20:31:00Z",
+            "declined_at": "2026-08-12T10:04:00Z",
+            "raw": "{{AfC submission|d|bio|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260812100400|ts=20260729203100|reason2=ilc}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1290884016,
+            "parentid": 1290812007,
+            "user": "Contributor",
+            "timestamp": "2026-08-27T18:15:00Z",
+            "comment": "ce",
+            "size": 9120
+          },
+          {
+            "revid": 1291455900,
+            "parentid": 1290884016,
+            "user": "Contributor",
+            "timestamp": "2026-09-02T12:48:00Z",
+            "comment": "fixed infobox dates",
+            "size": 9440
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "bio",
+          "family": "source_existence",
+          "first_seen": "2026-08-12T10:04:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": {
+            "refs_before": 5,
+            "refs_after": 5,
+            "new_domains": [],
+            "bytes_changed": 320,
+            "similarity": 0.94,
+            "touched_target_area": false,
+            "editor_comments": [
+              "ce",
+              "fixed infobox dates"
+            ]
+          }
+        },
+        {
+          "code": "ilc",
+          "family": "writing",
+          "first_seen": "2026-08-12T10:04:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": null
+        }
+      ],
+      "draft_comment": "The draft came back with a copy-edit and an infobox fix. The decline was about sourcing for a living person, and neither edit touched that.\n\nThe five references here are the same five that were present when the draft was declined. Before resubmitting again, it is worth checking whether anyone independent of the subject has written about her in depth - if they have, cite them; if they have not, the draft is not ready yet and no amount of copy-editing will change that.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Resubmitted without touching the area the decline pointed at."
+    },
+    {
+      "draft": {
+        "title": "Draft:Sunrise Protocol",
+        "pageid": 77641002,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "adv",
+            "secondary_code": "npov",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-06-18T13:22:00Z",
+            "declined_at": "2026-07-01T08:55:00Z",
+            "raw": "{{AfC submission|d|adv|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260701085500|ts=20260618132200|reason2=npov}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1290012774,
+            "parentid": 1289944510,
+            "user": "Contributor",
+            "timestamp": "2026-08-06T15:41:00Z",
+            "comment": "removed marketing language throughout",
+            "size": 18220
+          },
+          {
+            "revid": 1290680913,
+            "parentid": 1290012774,
+            "user": "Contributor",
+            "timestamp": "2026-08-20T09:12:00Z",
+            "comment": "rewrote lead per WP:NPOV",
+            "size": 16040
+          },
+          {
+            "revid": 1291620088,
+            "parentid": 1290680913,
+            "user": "Contributor",
+            "timestamp": "2026-09-03T17:05:00Z",
+            "comment": "cut the roadmap section",
+            "size": 15120
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "adv",
+          "family": "writing",
+          "first_seen": "2026-07-01T08:55:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": {
+            "refs_before": 9,
+            "refs_after": 12,
+            "new_domains": [
+              "coindesk.com",
+              "theblock.co"
+            ],
+            "bytes_changed": -3100,
+            "similarity": 0.42,
+            "touched_target_area": true,
+            "editor_comments": [
+              "removed marketing language throughout",
+              "rewrote lead per WP:NPOV",
+              "cut the roadmap section"
+            ]
+          }
+        }
+      ],
+      "draft_comment": "The decline was about promotional tone, and the draft has been rewritten against exactly that: the lead is new, the roadmap section is gone, and the draft is 3 KB shorter than when it was declined.\n\nNoting this here so the next reviewer does not have to reconstruct it from the history. Whether the draft is now acceptable is still a review decision, not something this note settles.\n\n~~~~",
+      "needs_human": false,
+      "escalation_reason": "The rewrite touched exactly what the decline pointed at. Nothing is being carried forward as unaddressed."
+    },
+    {
+      "draft": {
+        "title": "Draft:Kolmogorov–Arnold networks in practice",
+        "pageid": 76998431,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "essay",
+            "secondary_code": "ilc",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-05-06T07:19:00Z",
+            "declined_at": "2026-05-20T16:30:00Z",
+            "raw": "{{AfC submission|d|essay|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260520163000|ts=20260506071900|reason2=ilc}}"
+          },
+          {
+            "code": "ilc",
+            "secondary_code": "essay",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-07-11T21:02:00Z",
+            "declined_at": "2026-07-27T09:41:00Z",
+            "raw": "{{AfC submission|d|ilc|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260727094100|ts=20260711210200|reason2=essay}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1290344190,
+            "parentid": 1290201773,
+            "user": "Contributor",
+            "timestamp": "2026-08-11T05:52:00Z",
+            "comment": "expanded the theory section",
+            "size": 31200
+          },
+          {
+            "revid": 1291500661,
+            "parentid": 1290344190,
+            "user": "Contributor",
+            "timestamp": "2026-09-02T22:14:00Z",
+            "comment": "added worked example",
+            "size": 34980
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "ilc",
+          "family": "writing",
+          "first_seen": "2026-05-20T16:30:00Z",
+          "repeat_count": 2,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": {
+            "refs_before": 14,
+            "refs_after": 14,
+            "new_domains": [],
+            "bytes_changed": 6100,
+            "similarity": 0.55,
+            "touched_target_area": false,
+            "editor_comments": [
+              "expanded the theory section",
+              "added worked example"
+            ]
+          }
+        },
+        {
+          "code": "essay",
+          "family": "writing",
+          "first_seen": "2026-05-20T16:30:00Z",
+          "repeat_count": 2,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": null
+        }
+      ],
+      "draft_comment": "Both declines have come from the same reviewer and both point at the same pair of problems: the draft argues rather than reports, and long stretches of it carry no citation.\n\nSince the last decline the draft has grown by about 6 KB and the reference count is unchanged at 14. The new material - the expanded theory section and the worked example - is the part with no citations attached, so from the outside it looks like the draft moved away from the decline rather than towards it.\n\nThis is fixable by editing, which is worth saying plainly: the sources appear to exist. The work is attaching them to the specific sentences that make claims.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Same reviewer twice. The draft grew 6 KB and gained no citations."
+    },
+    {
+      "draft": {
+        "title": "Draft:List of tallest buildings in Surat",
+        "pageid": 78233560,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "exists",
+            "secondary_code": null,
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-08-09T11:26:00Z",
+            "declined_at": "2026-08-21T13:03:00Z",
+            "raw": "{{AfC submission|d|exists|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260821130300|ts=20260809112600}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1291180044,
+            "parentid": 1291102931,
+            "user": "Contributor",
+            "timestamp": "2026-08-24T06:40:00Z",
+            "comment": "updated heights",
+            "size": 27310
+          },
+          {
+            "revid": 1291744902,
+            "parentid": 1291180044,
+            "user": "Contributor",
+            "timestamp": "2026-09-04T14:22:00Z",
+            "comment": "added two towers",
+            "size": 28210
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "exists",
+          "family": "structural",
+          "first_seen": "2026-08-21T13:03:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": {
+            "refs_before": 22,
+            "refs_after": 26,
+            "new_domains": [
+              "skyscrapercenter.com"
+            ],
+            "bytes_changed": 900,
+            "similarity": 0.9,
+            "touched_target_area": false,
+            "editor_comments": [
+              "updated heights",
+              "added two towers"
+            ]
+          }
+        }
+      ],
+      "draft_comment": "The decline here was not about quality. A live article already covers this subject, so the draft is not competing on how well it is written - four more references and two more towers do not change that.\n\nThe useful move is to take the material that is genuinely new and add it to the existing article directly, then ask for this draft to be turned into a redirect. That keeps the work and drops the duplicate.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Structural decline: a live article already covers this. Continued editing of the draft cannot resolve it."
+    },
+    {
+      "draft": {
+        "title": "Draft:Blue Ridge ferry disaster (1911)",
+        "pageid": 78390117,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "cv",
+            "secondary_code": null,
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-08-14T04:55:00Z",
+            "declined_at": "2026-08-28T20:11:00Z",
+            "raw": "{{AfC submission|d|cv|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260828201100|ts=20260814045500}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1291402238,
+            "parentid": 1291355719,
+            "user": "Contributor",
+            "timestamp": "2026-08-31T08:03:00Z",
+            "comment": "rewrote the sections flagged on the talk page in my own words",
+            "size": 11440
+          },
+          {
+            "revid": 1291699055,
+            "parentid": 1291402238,
+            "user": "Contributor",
+            "timestamp": "2026-09-05T19:31:00Z",
+            "comment": "added two newspaper citations from 1911",
+            "size": 12010
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "cv",
+          "family": "unknown",
+          "first_seen": "2026-08-28T20:11:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": {
+            "refs_before": 6,
+            "refs_after": 8,
+            "new_domains": [
+              "chroniclingamerica.loc.gov",
+              "newspapers.com"
+            ],
+            "bytes_changed": -2400,
+            "similarity": 0.61,
+            "touched_target_area": true,
+            "editor_comments": [
+              "rewrote the sections flagged on the talk page in my own words",
+              "added two newspaper citations from 1911"
+            ]
+          }
+        }
+      ],
+      "draft_comment": "Recording what is observable so the next reviewer starts from it rather than from scratch.\n\nSince the decline, the draft is 2.4 KB shorter, about 39% of the text is new, and two newspaper citations from 1911 were added. The edit summaries say the flagged sections were rewritten.\n\nWhether that clears the original decline is a judgement this note does not make.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Decline code cv is not in First Reader's map, so nothing is carried forward about whether rewriting can clear it."
+    },
+    {
+      "draft": {
+        "title": "Draft:Thandiwe Mokoena",
+        "pageid": 77455280,
+        "is_pending": true,
+        "declines": [
+          {
+            "code": "v",
+            "secondary_code": "context",
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-06-01T17:48:00Z",
+            "declined_at": "2026-06-15T09:26:00Z",
+            "raw": "{{AfC submission|d|v|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260615092600|ts=20260601174800|reason2=context}}"
+          },
+          {
+            "code": "v",
+            "secondary_code": null,
+            "decliner": "Reviewer A",
+            "submitted_at": "2026-07-19T12:04:00Z",
+            "declined_at": "2026-07-30T15:50:00Z",
+            "raw": "{{AfC submission|d|v|u=Contributor|ns=118|decliner=Reviewer A|declinets=20260730155000|ts=20260719120400}}"
+          },
+          {
+            "code": "v",
+            "secondary_code": null,
+            "decliner": "Reviewer B",
+            "submitted_at": "2026-08-13T06:33:00Z",
+            "declined_at": "2026-08-26T18:09:00Z",
+            "raw": "{{AfC submission|d|v|u=Contributor|ns=118|decliner=Reviewer B|declinets=20260826180900|ts=20260813063300}}"
+          }
+        ],
+        "revisions": [
+          {
+            "revid": 1291489330,
+            "parentid": 1291470118,
+            "user": "Contributor",
+            "timestamp": "2026-09-01T20:55:00Z",
+            "comment": "typo",
+            "size": 4980
+          },
+          {
+            "revid": 1291657741,
+            "parentid": 1291489330,
+            "user": "Contributor",
+            "timestamp": "2026-09-04T21:40:00Z",
+            "comment": "added category",
+            "size": 5090
+          },
+          {
+            "revid": 1291770034,
+            "parentid": 1291657741,
+            "user": "Contributor",
+            "timestamp": "2026-09-06T10:11:00Z",
+            "comment": "resubmitting please review",
+            "size": 5160
+          }
+        ]
+      },
+      "blockers": [
+        {
+          "code": "v",
+          "family": "source_existence",
+          "first_seen": "2026-06-15T09:26:00Z",
+          "repeat_count": 3,
+          "carried_from": [
+            "Reviewer A",
+            "Reviewer B"
+          ],
+          "attempt": {
+            "refs_before": 2,
+            "refs_after": 2,
+            "new_domains": [],
+            "bytes_changed": 180,
+            "similarity": 0.97,
+            "touched_target_area": false,
+            "editor_comments": [
+              "typo",
+              "added category",
+              "resubmitting please review"
+            ]
+          }
+        },
+        {
+          "code": "context",
+          "family": "writing",
+          "first_seen": "2026-06-15T09:26:00Z",
+          "repeat_count": 1,
+          "carried_from": [
+            "Reviewer A"
+          ],
+          "attempt": null
+        }
+      ],
+      "draft_comment": "This is the same decline for the third time, from two different reviewers, and between the second and third submission the draft changed by 180 bytes: a typo fix and a category.\n\nResubmitting without new sources will produce the same result again, and the queue is long enough that this costs you weeks each time. The decline is about verifiability - the two references currently in the draft do not support most of what it says.\n\nIf you can find published sources for the specific claims, add them and resubmit. If you cannot find them, that is the real answer and it is better to know it now.\n\n~~~~",
+      "needs_human": true,
+      "escalation_reason": "Third identical decline. Nothing measurable changed between the second and third submission."
+    },
+    {
+      "draft": {
+        "title": "Draft:Vertigo Loom (band)",
+        "pageid": 78455901,
+        "is_pending": true,
+        "declines": [],
+        "revisions": [
+          {
+            "revid": 1291712204,
+            "parentid": 0,
+            "user": "Contributor",
+            "timestamp": "2026-09-05T11:20:00Z",
+            "comment": "creating draft",
+            "size": 6740
+          },
+          {
+            "revid": 1291766115,
+            "parentid": 1291712204,
+            "user": "Contributor",
+            "timestamp": "2026-09-06T08:44:00Z",
+            "comment": "added discography and refs",
+            "size": 8320
+          },
+          {
+            "revid": 1291781996,
+            "parentid": 1291766115,
+            "user": "Contributor",
+            "timestamp": "2026-09-06T22:02:00Z",
+            "comment": "submitting for review",
+            "size": 8355
+          }
+        ]
+      },
+      "blockers": [],
+      "draft_comment": "",
+      "needs_human": false,
+      "escalation_reason": "First submission. There is no prior decision to carry forward."
+    }
+  ],
+  "provenance": {
+    "real": "One card only -- Draft:0→1 Doctrine for AI -- is taken from the public record. Its page id, decline codes, submission and decline timestamps, revision ids, sizes and edit summaries are the real ones.",
+    "synthetic": "The other eight cards are invented. Titles are invented too and any resemblance to a real draft is coincidence.",
+    "anonymised": "Every account name in every card has been replaced with a neutral label (Reviewer A, Reviewer B, Contributor). AfC reviewers are volunteers and none of them should appear attached to a review they did not make.",
+    "estimated": "Diff-derived numbers -- refs_before, refs_after, new_domains, similarity -- are estimates. Nothing in this repository measured them. Revision sizes, and the byte deltas computed from them, are real for the card above.",
+    "queue_state": "is_pending is true on every card because the demo shows a reviewer's pending queue. The real draft above is not currently awaiting review."
+  }
+};

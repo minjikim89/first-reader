@@ -1,0 +1,30 @@
+[project]
+name = "first-reader"
+version = "0.1.0"
+description = "Carries decline context across Wikipedia AfC resubmissions. It does not review."
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27",
+    "strands-agents",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+first-reader = "first_reader.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "integration: hits the live Wikipedia API; deselected by default, run with `pytest -m integration`",
+]
+# Network tests are opt-in. A trailing `-m integration` on the command line
+# overrides this, since addopts are prepended.
+addopts = "-m 'not integration'"

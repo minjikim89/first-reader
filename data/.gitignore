@@ -1,0 +1,18 @@
+# Runtime state
+cache/
+queue/
+policy.json
+backtest-policy.json
+
+# Not distributed: carries real reviewer and contributor handles.
+# Ship data/dataset.anonymized.jsonl instead (scripts/anonymize.py),
+# and rebuild this with `python -m first_reader.wiki.collect`.
+dataset.jsonl
+dataset.jsonl.screened.jsonl
+anonymize-salt.txt
+
+# backtest*.json and judgments*.json are kept: they are the evidence for the
+# README's numbers, they carry only public draft titles and generated prose,
+# and a claim nobody can re-derive is not a claim. judgments*.json in
+# particular lets anyone run scripts/compare_paths.py -- and see that the model
+# changed no decision -- without an API key and without paying for a run.

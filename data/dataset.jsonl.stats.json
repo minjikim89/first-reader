@@ -1,0 +1,49 @@
+{
+  "collected": 540,
+  "drafts_screened": 2250,
+  "drafts_with_parse_failure": 20,
+  "draft_parse_failure_rate": 0.008888888888888889,
+  "template_skip_rate": 0.00736105999263894,
+  "parse_stats": {
+    "templates_found": 3994,
+    "declines_found": 2717,
+    "declines_parsed": 2697,
+    "declines_skipped": 20,
+    "rejected_found": 31,
+    "empty_code": 2,
+    "skip_reasons": {
+      "missing_decliner": 9,
+      "bad_ts": 8,
+      "bad_declinets": 3
+    },
+    "status_counts": {
+      "pending": 1008,
+      "declined": 2686,
+      "draft": 265,
+      "rejected": 31,
+      "reviewing": 4
+    },
+    "unmapped_codes": {
+      "reason": 96,
+      "astro": 3,
+      "not": 2,
+      "creative": 5,
+      "prof": 28,
+      "blp": 3,
+      "mergeto": 17,
+      "ns": 68,
+      "geo": 6,
+      "school": 4,
+      "number": 6,
+      "list": 3,
+      "book": 9,
+      "n": 26,
+      "cv-cleaned": 3,
+      "neo": 6,
+      "dict": 3,
+      "news": 9,
+      "e": 5,
+      "med": 1
+    }
+  }
+}
