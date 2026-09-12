@@ -223,6 +223,8 @@ Collected from the English Wikipedia API. No authentication, no scraping — `ac
 
 `data/dataset.anonymized.jsonl` ships with the repo. Account names are replaced with stable labels (`Reviewer 041`, `Contributor 118`) — one label per person globally, so repeat-reviewer analysis survives. Every figure in this README is computed from this file, so what you run is what you read; the raw 540-draft file moves small counts by the six drafts dropped for naming an account in their title, and leaves the headline claims unchanged. Titles, page ids, revision ids and timestamps are preserved for reproducibility.
 
+If you re-collect the raw file, it wins the search and real handles come back into the output — that is the point of having it. `FIRST_READER_DATASET=data/dataset.anonymized.jsonl` forces the de-identified copy, which is what anything shown to an audience should set.
+
 **This is de-identification, not anonymity.** Revision ids are immutable, so anyone re-collecting from Wikipedia can rebuild the mapping. The goal is that the file we ship is not itself an index of who was declined for what. Re-collect the raw data yourself with `python -m first_reader.wiki.collect`.
 
 See [`docs/data-provenance.md`](docs/data-provenance.md) for what is real, what is synthetic, and what is estimated in the demo fixtures.

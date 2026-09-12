@@ -113,7 +113,17 @@ DATASET_CANDIDATES = (
 
 
 def default_dataset() -> Path:
-    """The dataset to read, resolved when it is needed rather than at import."""
+    """The dataset to read, resolved when it is needed rather than at import.
+
+    ``FIRST_READER_DATASET`` overrides the search. It exists because the raw
+    file wins the search whenever it is present, and the raw file carries real
+    reviewer handles -- so anything shown to an audience (a screen recording, a
+    talk) has to be able to insist on the de-identified copy without renaming
+    files first.
+    """
+    override = os.getenv("FIRST_READER_DATASET", "").strip()
+    if override:
+        return Path(override)
     for candidate in DATASET_CANDIDATES:
         if candidate.exists():
             return candidate
