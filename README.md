@@ -109,7 +109,11 @@ Numbers, codes and counts are handed to the writer already settled — counts as
 words, so the model cannot render one wrong; the meaning of a decline code comes
 from the AfC reason map rather than the model's guess. A note that asserts a
 verdict on the draft, on a source, or on whether a reason was resolved is
-rejected and the template writes it instead. With no API key configured nothing
+rejected and the template writes it instead. Over the shipped dataset that
+fired 13 times in 534 drafts — eight notes claiming a subject *is not notable*,
+five claiming a reason *remains unaddressed* — and each one fell back rather
+than going out. The gate is an output check, not a line in the prompt, so it
+leaves a count behind. With no API key configured nothing
 changes except the prose: the deterministic path runs and the templates write.
 
 **The loop model and the reading model are chosen separately.** Walking a
@@ -164,7 +168,14 @@ Every figure here is recomputed from the shipped dataset by a script that prints
 ```bash
 python scripts/metrics.py     # queue composition, family distribution, coverage
 python scripts/backtest.py    # what carrying reasons forward actually catches
+python scripts/compare_paths.py data/judgments.json data/judgments-llm.json
 ```
+
+The third one is the safety claim, checkable. Both dumps ship, so it runs with
+no API key and no spend: 534 drafts down the deterministic path and 534 down the
+model path, diffed field by field. 1,032 prose fields differ, which is the
+model's job. **Zero decision fields differ.** Regenerate either side with
+`scripts/dump_judgments.py`.
 
 | | |
 |---|---|
