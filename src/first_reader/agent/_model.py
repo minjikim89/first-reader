@@ -25,6 +25,10 @@ from strands.types.streaming import StreamEvent
 
 logger = logging.getLogger(__name__)
 
+#: Providers already reported as credentialed-but-uninstalled, so a batch run
+#: says it once instead of once per draft.
+_WARNED_UNAVAILABLE: set[str] = set()
+
 TITLE_MARKER = re.compile(r"<title>(.*?)</title>", re.DOTALL)
 
 #: The fixed order the offline planner walks. Mirrors what the system prompt
@@ -249,12 +253,17 @@ def resolve_model(provider: str | None = None) -> Model:
                 # Anyone with OPENAI_API_KEY exported and the extra not installed
                 # would otherwise get ModuleNotFoundError on their first command,
                 # which is a bad way to meet a project. Say so and keep going.
-                logger.warning(
-                    "%s has credentials but its client is not installed (%s); "
-                    "trying the next provider. Install it with "
-                    'pip install "first-reader[%s]".',
-                    candidate, exc, candidate,
-                )
+                #
+                # Once per process: a fresh agent is built per draft, so a batch
+                # would otherwise repeat the same warning once a draft.
+                if candidate not in _WARNED_UNAVAILABLE:
+                    _WARNED_UNAVAILABLE.add(candidate)
+                    logger.warning(
+                        "%s has credentials but its client is not installed (%s); "
+                        "trying the next provider. Install it with "
+                        'pip install "first-reader[%s]".',
+                        candidate, exc, candidate,
+                    )
         return OfflinePlannerModel()
 
     if name in {"offline", "scripted", "none"}:
