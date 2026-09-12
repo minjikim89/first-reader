@@ -11,6 +11,14 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
 
+# Model providers are optional because the default is not a provider: the
+# offline planner drives the real loop with no network and no spend. Bedrock
+# needs nothing extra -- strands-agents carries boto3 already.
+openai = ["strands-agents[openai]"]
+openrouter = ["strands-agents[openai]"]  # OpenRouter speaks the OpenAI API
+anthropic = ["strands-agents[anthropic]"]
+ollama = ["strands-agents[ollama]"]
+
 [project.scripts]
 first-reader = "first_reader.cli:main"
 

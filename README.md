@@ -226,7 +226,9 @@ pytest                  # 209 unit tests, no network, no inference
 pytest -m integration   # 19 more, against the live Wikipedia API
 ```
 
-The default model provider is not a provider. `OfflinePlannerModel` implements the Strands `Model` interface and drives the real event loop, the real tools and the real intervention layer deterministically, at zero cost. Set `FIRST_READER_MODEL` to use a real one.
+The default model provider is not a provider. `OfflinePlannerModel` implements the Strands `Model` interface and drives the real event loop, the real tools and the real intervention layer deterministically, at zero cost. Set `FIRST_READER_MODEL` to use a real one — `bedrock`, `openrouter`, `openai`, `anthropic`, `ollama` or `offline`.
+
+Provider clients are optional extras (`pip install -e ".[openrouter]"`); Bedrock needs none, since `strands-agents` already carries boto3. The default `auto` picks the first provider whose credentials are present *and* whose client is installed, and says in a warning when it skips one — a stray `OPENAI_API_KEY` in your shell should not decide what this runs on, or crash it.
 
 ## Data
 

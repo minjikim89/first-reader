@@ -14,6 +14,7 @@ decided. Set ``FIRST_READER_MODEL`` to use a real provider.
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 from collections.abc import AsyncIterable
@@ -21,6 +22,8 @@ from typing import Any
 
 from strands.models.model import Model
 from strands.types.streaming import StreamEvent
+
+logger = logging.getLogger(__name__)
 
 TITLE_MARKER = re.compile(r"<title>(.*?)</title>", re.DOTALL)
 
@@ -237,8 +240,21 @@ def resolve_model(provider: str | None = None) -> Model:
         for candidate, key in (("openrouter", "OPENROUTER_API_KEY"),
                                ("openai", "OPENAI_API_KEY"),
                                ("anthropic", "ANTHROPIC_API_KEY")):
-            if os.getenv(key):
+            if not os.getenv(key):
+                continue
+            try:
                 return resolve_model(candidate)
+            except ImportError as exc:
+                # A key in the environment is not the same as a usable provider.
+                # Anyone with OPENAI_API_KEY exported and the extra not installed
+                # would otherwise get ModuleNotFoundError on their first command,
+                # which is a bad way to meet a project. Say so and keep going.
+                logger.warning(
+                    "%s has credentials but its client is not installed (%s); "
+                    "trying the next provider. Install it with "
+                    'pip install "first-reader[%s]".',
+                    candidate, exc, candidate,
+                )
         return OfflinePlannerModel()
 
     if name in {"offline", "scripted", "none"}:
